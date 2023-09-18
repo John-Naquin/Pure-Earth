@@ -1,0 +1,308 @@
+
+
+/* General styles for the volunteer list */
+ul.volunteer {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/* Styles for individual volunteer list items */
+li.volunteer {
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease-in-out;
+}
+
+li.volunteer:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.selected-slot {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.selected-slot:hover {
+    background-color: #0056b3;
+}
+
+.taken {
+    color: #999;
+    text-decoration: line-through;
+    cursor: not-allowed;
+    background-color: #f1f1f1;
+    border-radius: 50px;
+}
+
+
+
+
+/* IFRAME CSS */
+.responsive-iframe {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 50%;
+}
+
+.responsive-iframe iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* End of IFRAME CSS */
+
+
+
+/*Video Background */
+video {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+
+
+
+/*Animated Text */
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.animated-text {
+    display: inline-block;
+    animation: none;
+    padding-bottom: 1em;
+}
+.animated-text span {
+    display: inline-block;
+    animation: fade-in 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    opacity: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-right: 0.2em;
+}
+
+
+.animated-text span:last-child {
+    margin-right: 0;
+}
+
+
+.animated-text.animated {
+    animation: none;
+    animation: fade-in 10s cubic-bezier(0.165, 0.84, 0.44, 1) infinite;
+}
+
+@media screen and (max-width: 825px) {
+    .animated-text span {
+        font-size: 1.2rem;
+    }
+}
+
+
+/* End of Animated Text */
+
+
+
+
+/* Basic Styling and Nav Bar Stuff */
+
+header {
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #b5b5b5;
+}
+
+h2 {
+    color: #ffffff;
+}
+
+p {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+body {
+    background-color: transparent;
+}
+
+.container {
+    margin-left: 55px;
+    margin-right: 55px;
+    padding: 15px;
+    background-color: #156637;
+    border: 2px solid #000000;
+    max-width: calc(100% - 110px);
+    box-sizing: border-box;
+}
+
+
+
+
+/* About */
+
+.profile-link {
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2px;
+    margin-bottom: 10px;
+}
+.profile-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+
+
+
+
+
+/* Buttons and Input fields*/
+form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+form label {
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="password"],
+form input[type="question"],
+form input[type="email"],
+form input[type="message"]{
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 825px) {
+    form input[type="text"],
+    form input[type="password"],
+    form input[type="question"],
+    form input[type="email"],
+    form input[type="message"]{
+        width: 100%;
+    }
+}
+
+
+
+form button[type="submit"] {
+    display: block;
+    width: 50%;
+    padding: 10px;
+    background-color: #4c7d8a;
+    color: #fff;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 825px) {
+    form button[type="submit"] {
+        width: 100%;
+    }
+}
+
+form button[type="submit"]:hover {
+    background-color: #0069d9;
+}
+
+@media screen and (max-width: 825px) {
+    .button-text {
+        font-size: .9rem;
+    }
+}
+
+
+.message-input {
+    width: 50%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    vertical-align: top;
+    resize: vertical;
+}
+
+@media screen and (max-width: 825px) {
+    .message-input {
+        width: 100%;
+    }
+}
+
+
+
+
+/* fixes the styling of the buttons on the donation choice page */
+.donation-button {
+    background-color: #4c7d8a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    cursor: pointer;
+    margin-right: 10px;
+    width: 150px;
+    height: 50px;
+}
+
+@media (max-width: 825px) {
+    .donation-button {
+        margin-bottom: 10px;
+    }
+}
