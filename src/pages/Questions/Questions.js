@@ -20,29 +20,40 @@ function Questions() {
     const [answer, setAnswer] = useState('');
 
   
-
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const prompt = `Q: ${question}\nA:`;
+        if (!question) return;
+    
+        const data = {
+            model: "gpt-4",
+            messages: [
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": question}
+            ]
+        };
+    
         try {
-            const completions = await openai.complete({
-                engine: 'text-davinci-003',
-                prompt,
-                maxTokens: 1024,
-                n: 1,
-                stop: ['\n'],
-                temperature: 0.1,
+            const response = await fetch("https://api.openai.com/v1/chat/completions", {
+                method: "POST",
+                headers: {
+                    'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
             });
-            const responseData = completions.data;
-            const response = responseData.choices[0].text.trim();
-            setAnswer(response);
+    
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+    
+            const jsonResponse = await response.json();
+            setAnswer(jsonResponse.choices[0].message['content']);
         } catch (err) {
-            console.log(err);
+            console.error("Error in OpenAI request:", err);
+            setAnswer('Sorry, an error occurred.');
         }
     };
-
-
-
+    
 
     return (
         <body>
