@@ -27,7 +27,7 @@ function Questions() {
         const data = {
             model: "gpt-4",
             messages: [
-                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "system", "content": "You are a helpful assistant for national parks in the United States."},
                 {"role": "user", "content": question}
             ]
         };
